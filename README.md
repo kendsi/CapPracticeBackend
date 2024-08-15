@@ -24,7 +24,7 @@
 
 5. 아래 명령어로 윈도우 서비스로 DB 서버 시작
 ```
-redis-server --service-install redis.conf --service-name redis6379
+redis-server --service-install redis.windows.conf --service-name redis6379
 redis-server --service-start --service-name redis6379
 redis-cli -p 6379
 auth Capstone2
