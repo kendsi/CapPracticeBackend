@@ -1,6 +1,7 @@
 package com.capstone.demo.model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.Builder;
@@ -14,7 +15,8 @@ import lombok.Getter;
 public class User {
     @Id
     private String id;
-    private String userId;
-    private String name;
+    @Indexed(unique = true)
+    private String username;
+    private String nickname;
     private String password;
 }

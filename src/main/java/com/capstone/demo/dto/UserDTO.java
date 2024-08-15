@@ -6,13 +6,15 @@ import lombok.Setter;
 @Getter
 @Setter
 public class UserDTO {
-    private String userId;
-    private String name;
+    private String id;
+    private String username;
+    private String nickname;
     private String password;
 
-    public UserDTO(String userId, String name, String password) {
-        this.userId = userId;
-        this.name = name;
+    public UserDTO(String id, String username, String nickname, String password) {
+        this.id = id;
+        this.username = username;
+        this.nickname = nickname;
         this.password = password;
     }
 }
