@@ -70,6 +70,8 @@ redis-server --service-uninstall --service-name redis6379 //서비스 삭제
     "password": "testpass2"
 }
 ```
+(login 할 때는 nickname 불필요)
+
 위 같은 JSON 객체를 Body - raw에 입력하여 요청 보내야 함.
 
 위에서 id 값 같은 경우 DB에서 자동할당 하기 때문에 서버에 요청 보낼때는 필요 없음.
