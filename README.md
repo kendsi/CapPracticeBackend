@@ -42,16 +42,25 @@ redis-server --service-uninstall --service-name redis6379 //서비스 삭제
 ### 인증
 /api/auth/login 으로 올바른 요청을 보내면 인증토큰이 반환됨
 
+<br>
+
 /api/articles/
+
 해당 url의 하위 url에 보내는 GET 요청은 로그인 필요 X
 
+<br>
+
 /api/articles/search/
+
 /api/auth/
+
 해당 url의 하위 url에 보내는 모든 요청은 로그인 필요 X
+
+<br>
 
 그 외에는 Authorization -> Auth Type: Bearer Token 선택 후, 로그인한 뒤 나온 인증토큰 입력해야 함.
 
-### RequestBody (POST, PUT 요청에서 사)
+### RequestBody (POST, PUT 요청에서 사용)
 #### AuthController (UserDTO)
 ```
 {
@@ -62,8 +71,11 @@ redis-server --service-uninstall --service-name redis6379 //서비스 삭제
 }
 ```
 위 같은 JSON 객체를 Body - raw에 입력하여 요청 보내야 함.
+
 위에서 id 값 같은 경우 DB에서 자동할당 하기 때문에 서버에 요청 보낼때는 필요 없음.
+
 아래도 값이 비어있으면 DB나 서버에서 자동할당한다고 보면 됨.
+
 근데도 id 필드가 존재하는 이유는 GET 요청을 보내면 반환하기 때문.
 
 #### ArticleController (ArticleDTO)
