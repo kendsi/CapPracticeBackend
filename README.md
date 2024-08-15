@@ -5,7 +5,7 @@
 ### Spring Boot
 - **실행 방법**: Just F5
 
-### Redis 설치 (보안을 위해 사용)
+### Redis(RAM에서 구동되는 DB) 설치 (보안을 위해 사용)
 1. [Redis 3.0.504 버전 다운로드](https://github.com/MSOpenTech/redis/releases)
 
 <br>
