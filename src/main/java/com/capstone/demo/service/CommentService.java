@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cglib.core.Local;
 import org.springframework.stereotype.Service;
 
 import com.capstone.demo.dto.CommentDTO;
@@ -84,6 +85,15 @@ public class CommentService {
     }
 
     private CommentDTO convertToDTO(Comment comment) {
-        return new CommentDTO(comment.getId(), comment.getArticleId(), comment.getParentId(), comment.getContent(), comment.getCreatedAt(), comment.getModifiedAt(), comment.getAuthorId(), comment.getAuthorNickname());
+        return CommentDTO.builder()
+                            .id(comment.getId())
+                            .articleId(comment.getArticleId())
+                            .parentId(comment.getParentId())
+                            .content(comment.getContent())
+                            .createdAt(LocalDateTime.now())
+                            .modifiedAt(LocalDateTime.now())
+                            .authorId(comment.getAuthorId())
+                            .authorNickname(comment.getAuthorNickname())
+                            .build();
     }
 }

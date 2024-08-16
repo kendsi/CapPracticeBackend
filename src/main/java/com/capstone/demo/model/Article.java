@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @Builder
@@ -22,4 +23,6 @@ public class Article {
     private LocalDateTime modifiedAt;
     private String authorId;
     private String authorNickname;
+
+    private List<String> imagePaths;
 }

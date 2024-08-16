@@ -54,6 +54,11 @@ public class UserService {
     }
 
     private UserDTO convertToDTO(User user) {
-        return new UserDTO(user.getId(), user.getUsername(), user.getNickname(), user.getPassword());
+        return UserDTO.builder()
+                        .id(user.getId())
+                        .username(user.getUsername())
+                        .nickname(user.getNickname())
+                        .password(user.getPassword())
+                        .build();
     }
 }

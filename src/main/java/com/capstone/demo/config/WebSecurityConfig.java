@@ -33,21 +33,9 @@ public class WebSecurityConfig {
             .csrf(csrf -> csrf.disable())
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/", "/index.html").permitAll()
-                .requestMatchers("/api/articles/search/**", "/api/auth/**").permitAll()
+                .requestMatchers("/", "/api/articles/search/**", "/api/auth/**").permitAll()
                 .requestMatchers(HttpMethod.GET, "/api/articles/**").permitAll()
                 .anyRequest().authenticated()
-            )
-            .formLogin(form -> form
-                .loginProcessingUrl("/api/auth/login")
-                .defaultSuccessUrl("/", true)
-                .permitAll()
-            )
-            .logout(logout ->
-                logout
-                    .logoutUrl("/api/auth/logout")
-                    .logoutSuccessUrl("/")
-                    .permitAll()
             )
             .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
