@@ -73,6 +73,7 @@ public class JwtTokenProvider {
     public void addToBlacklist(String token) {
         Long expirationTimeInSeconds = parseClaims(token).getExpiration().getTime() / 1000 - System.currentTimeMillis() / 1000;
         redisTemplate.opsForValue().set(token, "blacklisted", Duration.ofSeconds(expirationTimeInSeconds));
+        System.out.println("Token added to blacklist: " + token);
     }
 
     public String getTokenFromRequest(HttpServletRequest request) {
