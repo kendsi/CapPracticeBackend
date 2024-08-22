@@ -71,6 +71,10 @@ public class CommentService {
         commentRepo.delete(comment);
     }
 
+    public void deleteCommentByArticleId(String articleId) {
+        commentRepo.deleteByArticleId(articleId);
+    }
+
     public List<CommentDTO> getAllComments(String articleId) {
         List<Comment> comments = commentRepo.findByArticleId(articleId).orElseThrow(() -> new CommentNotFoundException("Comment not found with article ID: " + articleId));
         return comments.stream()

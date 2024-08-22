@@ -28,6 +28,9 @@ public class ArticleService {
     @Autowired
     private ArticleRepo articleRepo;
 
+    @Autowired
+    private CommentService commentService;
+
     public ArticleResponseDTO createArticle(ArticleRequestDTO articleData) {
 
         List<String> imagePaths = uploadImages(articleData.getImages());
@@ -70,6 +73,7 @@ public class ArticleService {
             throw new UnauthorizedException("Unauthorized to delete: not the article owner.");
         }
 
+        commentService.deleteCommentByArticleId(articleId);
         articleRepo.delete(article);
     }
 

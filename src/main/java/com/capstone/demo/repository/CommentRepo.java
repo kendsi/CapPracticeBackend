@@ -11,4 +11,5 @@ public interface CommentRepo extends MongoRepository<Comment, String> {
     Optional<Comment> findByAuthorNickname(String authorNickname);
     Optional<List<Comment>> findByParentId(String parentId);
     Optional<List<Comment>> findByArticleId(String articleId);
+    void deleteByArticleId(String articleId);
 }
