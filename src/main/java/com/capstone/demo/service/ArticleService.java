@@ -136,14 +136,14 @@ public class ArticleService {
                         String fileName = UUID.randomUUID().toString() + "." + fileExtension;
                         String userHome = System.getProperty("user.home");
 
-                        String dirPath = userHome + "\\Pictures\\images";
+                        String dirPath = userHome + "/images";
 
                         File dir = new File(dirPath);
                         if (!dir.exists()) {
                             dir.mkdirs();
                         }
 
-                        String filePath = dirPath + "\\" + fileName;
+                        String filePath = dirPath + "/" + fileName;
 
                         file.transferTo(new File(filePath));
                         imagePaths.add(filePath);
