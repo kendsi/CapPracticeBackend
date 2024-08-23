@@ -143,10 +143,10 @@ public class ArticleService {
                             dir.mkdirs();
                         }
 
-                        String filePath = "images/" + fileName;
+                        String filePath = dirPath + "/" + fileName;
 
                         file.transferTo(new File(filePath));
-                        imagePaths.add(filePath);
+                        imagePaths.add("images/" + fileName);
                     } catch (IOException e) {
                         throw new ImageStorageException("Failed to save image file");
                     }

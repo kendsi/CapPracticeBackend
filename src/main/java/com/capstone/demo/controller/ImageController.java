@@ -27,14 +27,11 @@ public class ImageController {
             Resource resource = imageService.loadImage(filename);
             String contentType = resource.getFile().toURI().toURL().openConnection().getContentType();
 
-            System.out.println(contentType);
-
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.parseMediaType(contentType));
 
             return new ResponseEntity<>(resource, headers, HttpStatus.OK);
         } catch (Exception e) {
-            System.out.println("BadRequest");
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     } 
