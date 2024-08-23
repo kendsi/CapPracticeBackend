@@ -56,6 +56,7 @@ public class ArticleService {
 
         List<String> imagePaths = article.getImagePaths();
         if (articleData.getImages() != null && !articleData.getImages().isEmpty()) {
+            deleteImages(imagePaths);
             imagePaths = uploadImages(articleData.getImages());
         }
 
@@ -74,6 +75,7 @@ public class ArticleService {
         }
 
         commentService.deleteCommentByArticleId(articleId);
+        deleteImages(article.getImagePaths());
         articleRepo.delete(article);
     }
 
@@ -114,6 +116,22 @@ public class ArticleService {
                                     .authorNickname(article.getAuthorNickname())
                                     .imagePaths(article.getImagePaths())
                                     .build();
+    }
+
+    private void deleteImages(List<String> imagePaths) {
+        if (imagePaths != null && !imagePaths.isEmpty()) {
+            for (String imagePath : imagePaths) {
+                String userHome = System.getProperty("user.home");
+                String filePath = userHome + "/" + imagePath;
+                
+                File imageFile = new File(filePath);
+                if (imageFile.exists()) {
+                    if (!imageFile.delete()) {
+                        throw new ImageStorageException("Failed to delete image file: " + filePath);
+                    }
+                }
+            }
+        }
     }
 
     private List<String> uploadImages(List<MultipartFile> files) {
