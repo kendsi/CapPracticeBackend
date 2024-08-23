@@ -27,8 +27,6 @@ public class ArticleController {
 
     @Autowired
     ArticleService articleService;
-
-
     
     @PostMapping("")
     public ResponseEntity<ArticleResponseDTO> createArticle(@ModelAttribute ArticleRequestDTO articleData, Authentication authentication) {

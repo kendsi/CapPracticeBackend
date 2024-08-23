@@ -143,7 +143,7 @@ public class ArticleService {
                             dir.mkdirs();
                         }
 
-                        String filePath = dirPath + "/" + fileName;
+                        String filePath = "images/" + fileName;
 
                         file.transferTo(new File(filePath));
                         imagePaths.add(filePath);
