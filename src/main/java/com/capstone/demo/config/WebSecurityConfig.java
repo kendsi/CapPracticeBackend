@@ -33,7 +33,7 @@ public class WebSecurityConfig {
             .csrf(csrf -> csrf.disable())
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/", "/api/articles/search/**", "/api/auth/**").permitAll()
+                .requestMatchers("/", "/api/articles/search/**", "/api/images/**", "/api/auth/**").permitAll()
                 .requestMatchers(HttpMethod.GET, "/api/articles/**").permitAll()
                 .anyRequest().authenticated()
             )
