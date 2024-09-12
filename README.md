@@ -27,7 +27,7 @@
 redis-server --service-install redis.windows.conf --service-name redis6379
 redis-server --service-start --service-name redis6379
 redis-cli -p 6379
-auth Capstone2
+auth password
 ```
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ping 쳐서 pong 뜨면 제대로 실행된 것
 ```
